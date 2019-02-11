@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <button id="loginBtn">登录</button>
+  <script>
+    var loginLayer = (function(){
+      var div = document.createElement('div');
+      div.innerHTML = '我是登录浮窗';
+      div.style.display = 'none';
+      document.body.appendChild(div);
+      return div;
+    })();
+
+    document.getElementById('loginBtn').onclick = function(){
+      loginLayer.style.display = 'block';
+    }
+  </script>
+  <!-- 问题：一开始登录浮窗就被创建好，有可能会浪费DOM节点 -->
+</body>
+</html>

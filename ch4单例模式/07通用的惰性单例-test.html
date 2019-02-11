@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="loginBtn">loginBtn</div>
+</body>
+<script>
+var getSingle = function(fn){
+  var result;
+  return function(){
+    return result || (result = fn.apply(this, arguments));
+  };
+};
+var createSingleIframe = getSingle(function(){
+  var iframe = document.createElement('iframe');
+  document.body.appendChild(iframe);
+  return iframe;
+});
+
+document.getElementById('loginBtn').onclick = function(){
+  var loginLayer = createSingleIframe();
+  loginLayer.src = 'http://baidu.com';
+}
+</script>
+</html>
