@@ -21,7 +21,7 @@ var event = {
 };
 
 event.remove = function(key, fn){
-  var fns = this.clienList[key];
+  var fns = this.clientList[key];
 
   if(!fns){
     return false;
@@ -37,3 +37,23 @@ event.remove = function(key, fn){
     }
   }
 };
+
+var salesOffices = {};
+var installEvent = function(obj){
+  for(var i in event){
+    obj[i] = event[i];
+  }
+}
+
+installEvent(salesOffices);
+
+salesOffices.listen('squareMeter88', fn1 = function(price){
+  console.log('价格= ' + price);
+});
+
+salesOffices.listen('squareMeter88', fn2 = function(price){
+  console.log('价格= ' + price);
+});
+
+salesOffices.remove('squareMeter88', fn1);
+salesOffices.trigger('squareMeter88', 200000);
