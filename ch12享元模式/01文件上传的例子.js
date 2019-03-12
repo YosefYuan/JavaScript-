@@ -36,9 +36,6 @@ Upload.prototype.delFile = function(){
     return this.dom.parentNode.removeChild(this.dom);
   }
 };
-
-console.log(11111111);
-
 startUpload('plugin',[
   {
     fileName:'1.txt',
